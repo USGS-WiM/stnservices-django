@@ -19,19 +19,24 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+```bash
+git clone https://github.com/USGS-WiM/stnservices-django.git
 
-Say what the step will be
+# install virtualenv
+pip install virtualenv
 
-```
-Give the example
-```
+# create a virtual environment
+virtualenv env
 
-And repeat
+# activate the virtual environment
+source env/bin/activate
 
-```
-until finished
-```
+# install the project's dependencies
+pip install -r requirements.txt
+
+# migrate the database
+python3 manage.py migrate
+
 
 ## Building and testing
 
@@ -78,10 +83,8 @@ Add additional notes about how to deploy this on a live system. **Do not include
 
 ## Built With
 
-* [Angular](https://angular.io/) - The main web framework used
-* [Clarity UI](https://vmware.github.io/clarity/) - Top-level UI framework if you have one
-* [NPM](https://www.npmjs.com/) - Dependency Management
-* [Others](https://www.npmjs.com/) - Any other high-level dependencies
+* [DRF](https://angular.io/) - The main web framework used
+* [Python](https://vmware.github.io/clarity/) - Top-level UI framework if you have one
 
 ## Contributing
 

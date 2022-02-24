@@ -112,3 +112,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# settings
+settings.cfg
