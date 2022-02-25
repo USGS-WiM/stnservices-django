@@ -11,24 +11,24 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
-from django.utils.six import moves
+#from django.utils.six import moves
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 SETTINGS_DIR = os.path.dirname(__file__)
 
-CONFIG = moves.configparser.RawConfigParser(allow_no_value=True)
-CONFIG.read(os.path.join(SETTINGS_DIR, 'settings.cfg'))
+#CONFIG = moves.configparser.RawConfigParser(allow_no_value=True)
+#CONFIG.read(os.path.join(SETTINGS_DIR, 'settings.cfg'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = CONFIG.get('general', 'DEBUG')
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SECRET_KEY = CONFIG.get('general', 'SECRET_KEY')
+# SECRET_KEY = CONFIG.get('general', 'SECRET_KEY')
 # Application definition
 
 INSTALLED_APPS = [
@@ -75,8 +75,7 @@ WSGI_APPLICATION = 'stnservices.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = CONFIG.get('databases', 'TEST')
-
+#DATABASES = CONFIG.get('databases', 'TEST')
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
