@@ -17,7 +17,6 @@ class Agency(models.Model):
     class Meta:
         db_table = "stn_agency"
         verbose_name_plural = "agencies"
-        ordering = ['id']
         
 class Agencies(models.Model):
     """
@@ -31,7 +30,6 @@ class Agencies(models.Model):
     class Meta:
         db_table = "stn_approval"
         verbose_name_plural = "approvals"
-        ordering = ['id']
         
 class Contact(models.Model):
     """
@@ -51,4 +49,3 @@ class Contact(models.Model):
     class Meta:
         db_table = "stn_contact"
         verbose_name_plural = "contacts"
-        ordering = ['id']
