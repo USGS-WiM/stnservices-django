@@ -37,7 +37,7 @@ class Contact(models.Model):
     """
 
     contact_id = models.IntegerField(null=True, help_text='An integer value of the contact id for this contact')
-    fname = models.CharField(max_length=100, max_length=128, blank=True, default='', help_text='An alphanumeric value of the first name of this contact')
+    fname = models.CharField(max_length=100, blank=True, default='', help_text='An alphanumeric value of the first name of this contact')
     lname = models.CharField(max_length=100, help_text='An alphanumeric value of the last name of this contact')
     phone = models.CharField(max_length=20, help_text='An alphanumeric value of the phone for this contact')
     alt_phone = models.CharField(max_length=20, help_text='An alphanumeric value of the alternate phone for this contact')
