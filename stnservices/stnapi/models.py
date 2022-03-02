@@ -45,38 +45,36 @@ class Contact(models.Model):
 
     class Meta:
         db_table = "stn_contact"
-        verbose_name_plural = "contacts"
         
 class ContactType(models.Model):
     """
     Contact Types
     """
 
-    contact_type_id = models.IntegerField(null=True, help_text='An integer value of the contact type id for this contact type')
     type = models.CharField(max_length=50, blank=True, default='', help_text='An alphanumeric value of the type of contact')
 
     class Meta:
         db_table = "stn_contact_type"
-        verbose_name_plural = "contact_types"
         
 class County(models.Model):
     """
     County
     """
-
-    contact_type_id = models.IntegerField(null=True, help_text='An integer value of the contact type id for this contact type')
-    type = models.CharField(max_length=50, blank=True, default='', help_text='An alphanumeric value of the type of contact')
-
+    
+    name = models.CharField(max_length=50, blank=True, default='', help_text='An alphanumeric value of the type of contact')
+    state_id = models.IntegerField(null=True, help_text='An integer value of the contact type id for this contact type')
+    state_fip = models.IntegerField(null=True, help_text='An integer value of the contact type id for this contact type')
+    county_fip = models.IntegerField(null=True, help_text='An integer value of the contact type id for this contact type')
+    
     class Meta:
         db_table = "stn_county"
         verbose_name_plural = "counties"
 
 class DataFile(models.Model):
     """
-    County
+    DataFile
     """
 
-    data_file_id = models.IntegerField(null=True, help_text='An integer value of the data file id for this data file')
     processor_id = models.IntegerField(null=True, help_text='An integer value of the member id of the person processing this data file')
     sensor_id = models.IntegerField(null=True, help_text='An integer value of the sensor id of the sensor associated with this data file')
     approval_id = models.IntegerField(null=True, help_text='An integer value of the approval id of the approval for this data file')
@@ -85,9 +83,49 @@ class DataFile(models.Model):
     elevation_status = models.CharField(max_length=20, blank=True, default='', help_text='An alphanumeric value of the elevation status of this data file')
     time_zone = models.CharField(max_length=8, blank=True, default='', help_text='An alphanumeric value of the time zone for this data file')
     last_updated = models.DateField(null=True, help_text='The date this object was last modified on in "YYYY-MM-DD" format')
-    last_updated_by = models.IntegerField(null=True, help_text='An integer value of the member id for this contact')
+    last_updated_by = models.IntegerField(null=True, help_text='An integer value of the member id for the member who last updated the object')
 
     class Meta:
-        db_table = "stn_county"
-        verbose_name_plural = "counties"
-        ordering = ['id']
+        db_table = "stn_datafile"
+        
+class DeploymentPriority(models.Model):
+    """
+    DeploymentPriority
+    """
+    
+    name = models.CharField(max_length=50, blank=True, default='', help_text='An alphanumeric value of the name of a deployment priority')
+    
+    class Meta:
+        db_table = "stn_deployment_priority"
+        verbose_name_plural = "stn_deployment_priorities"
+        
+class DeploymentType(models.Model):
+    """
+    DeploymentType
+    """
+    
+    method = models.CharField(max_length=255, blank=True, default='', help_text='An alphanumeric value of the method of a deployment type')
+    
+    class Meta:
+        db_table = "stn_deployment_type"
+
+class EventStatus(models.Model):
+    """
+    EventStatus
+    """
+    
+    status = models.CharField(max_length=50, blank=True, default='', help_text='An alphanumeric value of the status of an event')
+    
+    class Meta:
+        db_table = "stn_event_status"
+        verbose_name_plural = "stn_event_statuses"
+
+class EventType(models.Model):
+    """
+    EventType
+    """
+    
+    status = models.CharField(max_length=255, blank=True, default='', help_text='An alphanumeric value of the type of an event')
+    
+    class Meta:
+        db_table = "stn_event_type"
