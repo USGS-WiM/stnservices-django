@@ -37,6 +37,7 @@ pip install -r requirements.txt
 # migrate the database
 python3 manage.py migrate
 
+```
 
 ## Building and testing
 
