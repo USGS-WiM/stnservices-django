@@ -22,7 +22,8 @@ class Approval(models.Model):
     Approval
     """
     
-    member_id = models.ForeignKey('Member', models.PROTECT, related_name='member', help_text='A foreign key integer value identifying the member for this approval')
+    members = models.ForeignKey('Member', models.PROTECT, related_name='member', help_text='A foreign key integer value identifying the member for this approval')
+
     approval_date = models.DateField(null=True, help_text='The date this object was last modified on in "YYYY-MM-DD" format')
 
     class Meta:
